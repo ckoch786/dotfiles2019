@@ -197,6 +197,15 @@ nmap <c-s> :w<CR>
 vmap <c-s> <Esc><c-s>gv
 imap <c-s> <Esc><c-s>
 
+" http://vimcasts.org/episodes/updating-your-vimrc-file-on-the-fly/
+" Source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
+let mapleader = ","
+nmap <leader>v :tabedit $MYVIMRC<CR>
+
 " on v.s. enable??
 " on overrides your color settings, 
 " enable leaves your color settings alone
@@ -238,23 +247,7 @@ hi User3 guifg=#000000 guibg=#4cbf99
 ":setlocal bufhidden=hide
 ":setlocal noswapfile
 
-
-"       HOW TO DO 90% OF WHAT PLUGINS DO (WITH JUST VIM)
-
-"                          Max Cantor
-
-"               NYC Vim Meetup -- August 3, 2016
-
-
-
-
-
-
-
-
-
-
-
+" start github.com/mcantor/no_plugins 
 " FEATURES TO COVER:
 " - Fuzzy File Search
 " - Tag jumping
@@ -262,28 +255,6 @@ hi User3 guifg=#000000 guibg=#4cbf99
 " - File Browsing
 " - Snippets
 " - Build Integration (if we have time)
-
-
-
-
-
-
-
-
-
-
-" GOALS OF THIS TALK:
-" - Increase Vim understanding
-" - Offer powerful options
-
-
-" NOT GOALS OF THIS TALK:
-" - Hate on plugins
-" - Get people to stop using plugins
-
-
-
-
 
 " {{{ BASIC SETUP
 " BASIC SETUP:
@@ -294,14 +265,6 @@ set nocompatible
 " enable syntax and plugins (for netrw)
 ""syntax enable
 "filetype plugin on
-
-
-
-
-
-
-
-
 
 " FINDING FILES:
 
@@ -319,7 +282,6 @@ set wildmenu
 " THINGS TO CONSIDER:
 " - :b lets you autocomplete any open buffer
 
-
 " TAG JUMPING:
 
 " Create the `tags` file (may need to install ctags first)
@@ -333,10 +295,6 @@ command! MakeTags !ctags -R .
 " THINGS TO CONSIDER:
 " - This doesn't help if you want a visual list of tags
 
-
-
-
-
 " AUTOCOMPLETE:
 
 " The good stuff is documented in |ins-completion|
@@ -349,10 +307,6 @@ command! MakeTags !ctags -R .
 
 " NOW WE CAN:
 " - Use ^n and ^p to go back and forth in the suggestion list
-
-
-
-
 
 " FILE BROWSING:
 
@@ -369,24 +323,10 @@ let g:netrw_liststyle=3     " tree view
 " - <CR>/v/t to open in an h-split/v-split/tab
 " - check |netrw-browse-maps| for more mappings
 
-
-
 " SNIPPETS:
 
 " Read an empty HTML template and move cursor to title
 nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
-
-" NOW WE CAN:
-" - Take over the world!
-"   (with much fewer keystrokes)
-
-
-
-
-
-
-
-
 
 " BUILD INTEGRATION:
 
@@ -394,29 +334,12 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 " http://philipbradley.net/rspec-into-vim-with-quickfix
 
 " Configure the `make` command to run RSpec
-set makeprg=bundle\ exec\ rspec\ -f\ QuickfixFormatter
+"set makeprg=bundle\ exec\ rspec\ -f\ QuickfixFormatter
 
 " NOW WE CAN:
 " - Run :make to run RSpec
 " - :cl to list errors
 " - :cc# to jump to error by number
 " - :cn and :cp to navigate forward and back
-
-
-
-
-
-"                          THANK YOU!
-
-"                    Download this file at:
-"                github.com/mcantor/no_plugins
-
-"                Follow me for kitten pictures:
-"                     twitter.com/mcantor
-
-"          Contact me at `max at maxcantor dot net` for:
-"                  - Consulting (Dev and PM)
-"                          - Tutoring
-"                     - Classroom Teaching
-"                     - Internal Training
-"                       - Encouragement
+"
+" end github.com/mcantor/no_plugins 
