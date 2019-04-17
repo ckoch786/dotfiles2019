@@ -192,6 +192,11 @@ colorscheme visualstudio " Commented out last line for missing font
 
 """"""""" Personal Settings """"""""
 
+" Saving files
+nmap <c-s> :w<CR>
+vmap <c-s> <Esc><c-s>gv
+imap <c-s> <Esc><c-s>
+
 " on v.s. enable??
 " on overrides your color settings, 
 " enable leaves your color settings alone
