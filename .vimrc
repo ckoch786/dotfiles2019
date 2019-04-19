@@ -191,7 +191,8 @@ colorscheme visualstudio " Commented out last line for missing font
 ""set runtimepath^=~\vimfiles\bundle\ctrlp.vim
 
 """"""""" Personal Settings """"""""
-
+set incsearch
+set hlsearch
 " Saving files
 nmap <c-s> :w<CR>
 vmap <c-s> <Esc><c-s>gv
